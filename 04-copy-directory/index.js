@@ -1,4 +1,4 @@
-const fs = require('fs').promises;
+const fs = require('fs/promises');
 const path = require('path');
 const prevDirPath = path.join(__dirname, 'files');
 const newDirPath = path.join(__dirname, 'files-copy');
@@ -38,9 +38,9 @@ async function createCopy(oldDir, newDir) {
         await fs.copyFile(oldFile, newFile);
       }
     }));
-    console.log(`Файлы успешно скопированы.`);
+    console.log(`Files are copied!`);
   } catch (err) {
-    console.error(err);
+    console.error("Something is wrong",err);
   }
 }
 
